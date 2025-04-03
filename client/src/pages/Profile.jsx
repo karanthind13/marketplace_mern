@@ -13,7 +13,7 @@ const Profile = () => {
   const [fileUploadError, setFileUploadError]= useState(false);
   const [formData, setFormData]= useState({});
   const [upadateSuccess, setUpdateSuccess]= useState(false);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); 
  
   
 //firebase clouyd storage
