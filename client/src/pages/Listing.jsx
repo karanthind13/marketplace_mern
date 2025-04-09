@@ -7,6 +7,7 @@ import SwiperCore from 'swiper';
 import 'swiper/css/bundle'
 import 'swiper/css/navigation'
 import { FaBath, FaBed, FaChair, FaMapMarkerAlt, FaParking, FaShare } from 'react-icons/fa';
+import Contact from '../components/Contact';
 
 export default function Listing(){
     SwiperCore.use([Navigation]);
@@ -129,9 +130,9 @@ export default function Listing(){
                         </button>
                     )}
                     {contact && <Contact listing={listing} />}
-                    </div>
-                </div>          
-                }
+                </div>
+            </div>          
+            }
         </main>
     )
 }
