@@ -19,6 +19,7 @@
     "firebase": "^11.5.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.13.0",
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.9",
+    "swiper": "^11.2.6"
   }
 }
