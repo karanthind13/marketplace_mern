@@ -46,26 +46,50 @@ export default function SignUp() {
   }
   console.log(formData);
   return (
-    <div className='p-3 max-w-lg mx-auto'>
-      <h1 className='text-3xl text-center font-semibold my-7'>Sign up</h1>
-      <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
-        <input type="text" placeholder='username' className='border p-3 rounded-lg' id='username'onChange={handleChange} />
-        <input type="email" placeholder='email' className='border p-3 rounded-lg' id='email'onChange={handleChange} />
-        <input type="password" placeholder='password' className='border p-3 rounded-lg' id='password' onChange={handleChange}/>
-        <button disabled={loading} className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80'>
-          {loading?'Loading...' :'Sign Up'}
-          </button>
-        <OAuth/>
-        
-      </form>
-      <div className='flex gap-2 mt-5'>
-        <p>Have an account?</p>
-        <Link to={"/sign-in"}>
-        <span className='text-blue-700'>Sign in</span>
-        </Link>
-      </div>
-      {error && <p className='text-red-500 mt-5'> {error}</p>}
-    </div>
+    <div className='p-8 max-w-md mx-auto bg-white rounded-xl shadow-xl'>
+  <h1 className='text-4xl font-bold text-center text-gray-800 my-6'>
+    Sign Up
+  </h1>
+  <form onSubmit={handleSubmit} className='flex flex-col gap-6'>
+    <input
+      type='text'
+      placeholder='Username'
+      className='w-full p-4 text-lg border-2 border-gray-300 rounded-xl shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500'
+      id='username'
+      onChange={handleChange}
+    />
+    <input
+      type='email'
+      placeholder='Email'
+      className='w-full p-4 text-lg border-2 border-gray-300 rounded-xl shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500'
+      id='email'
+      onChange={handleChange}
+    />
+    <input
+      type='password'
+      placeholder='Password'
+      className='w-full p-4 text-lg border-2 border-gray-300 rounded-xl shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500'
+      id='password'
+      onChange={handleChange}
+    />
+    <button
+      disabled={loading}
+      className='w-full bg-indigo-600 text-white p-4 rounded-xl text-lg font-semibold hover:bg-indigo-700 transition duration-300 disabled:opacity-50'
+    >
+      {loading ? 'Loading...' : 'Sign Up'}
+    </button>
+    <OAuth />
+  </form>
+  <div className='flex justify-center gap-2 mt-5'>
+    <p className='text-gray-600'>Already have an account?</p>
+    <Link to='/sign-in'>
+      <span className='text-indigo-600 font-semibold hover:underline'>
+        Sign In
+      </span>
+    </Link>
+  </div>
+  {error && <p className='text-red-500 text-center mt-4'>{error}</p>}
+</div>
   )
 }
 

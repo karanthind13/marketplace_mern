@@ -24,54 +24,66 @@ export default function Header(){
         }
     }, [location.search])
     return (
-       <header className='bg-slate-200 shadow-md'>
-        <div className='flex justify-between items-center max-w-6xl mx-auto p-3'>
-            <Link to='/'>
-                <h1 className='font-bold text-sm sm:text-xl flex flex-wrap'>
-                    <span className='text-slate-500'>EMI </span>
-                    <span className='text-slate-700'>Villa</span>
-                </h1>
-            </Link>
-            
-            <form onSubmit={handleSubmit} className='bg-slate-100 p-3 rounded-lg flex items-center' >
-                <input 
-                type="text" 
-                placeholder='Search...' 
-                className='bg-transparent focus:outline-none w-24 sm:w-64'
-                value={searchTerm}
-                onChange={(e)=> setSearchTerm(e.target.value)}
-                 />
-                 <button>
-                    <FaSearch className='text-slate-500'/>
-                 </button>
-                
-            </form>
+<header className="bg-white/80 backdrop-blur-sm shadow-lg sticky top-0 z-50 border-b border-gray-200">
+  <div className="flex justify-between items-center max-w-7xl mx-auto px-6 py-4">
 
-            <ul className='flex gap-4'>
-                <Link to='/home'>
-                    <li className='hidden sm:inline text-slate-700 hover:underline'>Home</li>
-                </Link>
-              
-                <Link to='/about'>
-                    <li className='hidden sm:inline text-slate-700 hover:underline'>About</li>
-                </Link>
+    {/* Logo */}
+    <Link to="/">
+      <h1 className="text-3xl sm:text-4xl font-black tracking-tight text-gray-900 transition-transform duration-300 hover:scale-105">
+        <span className="text-sky-600 drop-shadow-sm">EMI</span>
+        <span className="text-gray-800">Villa</span>
+      </h1>
+    </Link>
 
-                <Link to='/profile'>
-                    {currentUser?(
-                        <img className='rounded-full h-7  w-7 object-cover' src={currentUser.avatar} alt="profile" />
-                    ): (<li className='text-slate-700 hover:underline'>Sign in</li>
-                
-                    )}
-                </Link>
+    {/* Search Bar */}
+    <form
+      onSubmit={handleSubmit}
+      className="flex items-center gap-3 bg-white border border-gray-300 rounded-full px-5 py-2 shadow-md focus-within:ring-2 focus-within:ring-sky-500 transition"
+    >
+      <input
+        type="text"
+        placeholder="Search properties..."
+        className="bg-transparent focus:outline-none w-28 sm:w-64 text-base sm:text-sm text-gray-700 placeholder-gray-400"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
+      <button type="submit">
+        <FaSearch className="text-gray-500 hover:text-sky-600 transition duration-200" />
+      </button>
+    </form>
 
-                {/* <Link to='/sign-up'>
-                    <li className='text-slate-700 hover:underline'>Sign up</li>
-                </Link> */}
-                
-            </ul> 
-        </div>
-            
-       </header>
+    {/* Navigation */}
+    <ul className="flex items-center gap-6 text-base sm:text-lg font-semibold text-gray-700">
+      <Link to="/home">
+        <li className="hidden sm:inline hover:text-sky-600 transition hover:underline underline-offset-4 decoration-sky-500 hover:scale-105">
+          Home
+        </li>
+      </Link>
+
+      <Link to="/about">
+        <li className="hidden sm:inline hover:text-sky-600 transition hover:underline underline-offset-4 decoration-sky-500 hover:scale-105">
+          About
+        </li>
+      </Link>
+
+      <Link to="/profile">
+        {currentUser ? (
+          <img
+            className="h-11 w-11 rounded-full object-cover ring-2 ring-sky-500 hover:scale-110 transition-transform duration-300 shadow-md"
+            src={currentUser.avatar}
+            alt="profile"
+          />
+        ) : (
+          <li className="hover:text-sky-600 transition hover:underline hover:scale-105">
+            Sign in
+          </li>
+        )}
+      </Link>
+    </ul>
+    
+  </div>
+</header>
+      
       )
     
 }
